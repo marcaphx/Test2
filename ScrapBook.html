@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Scrapbook</title>
+   <link rel="stylesheet" href="ScrapBook.css">
+</head>
+
+<body>
+   <div class="sidebar" id="sidebar">
+      <button class="sidebar-toggle" id="sidebarToggle">&#9776;</button>
+      <nav>
+         <ul>
+        <li><a href="index.html">Surprise :]</a></li>
+        <li><a href="card.html">Card</a></li>
+        <li><a href="fotoalbum.html">fotoalbum</a></li>
+        <li><a href="ScrapBook.html">ScrapBook</a></li>
+         </ul>
+      </nav>
+   </div>
+   <div class="main-content">
+      <div class="controls centered">
+         <button id="prevPage" aria-label="Previous Page"><-</button>
+         <button id="nextPage" aria-label="Next Page">-></button>
+      </div>
+      <div class="flipbook centered" id="flipbook">
+         <div class="leaf">
+            <div class="page front title external" style="background-color: #277162;">
+               <img src="ekide.jpg" alt="img" style="width: 100%; height: 100%;">
+            </div>
+            <div class="page back" style="background-color: #fff;">
+               <div class="pageNumber"></div>
+            </div>
+         </div>
+
+         <div class="leaf">
+            <div class="page front" style="background-color: #fff;">
+               <div class="pageNumber">2</div>
+               <img src="img/PAGE 2.png" alt="img" style="width: 100%; height: 100%;">
+            </div>
+            <div class="page back" style="background-color: #fff;">
+               <div class="pageNumber">3</div>
+               <img src="img/PAGE 3.png" alt="" style="width: 100%; height: 100%;">
+            </div>
+         </div>
+
+         <div class="leaf">
+            <div class="page front" style="background-color: #fff;">
+               <div class="pageNumber">4</div>
+               <img src="img/PAGE 4.png" alt="img" style="width: 100%; height: 100%;">
+            </div>
+            <div class="page back" style="background-color: #fff;">
+               <div class="pageNumber">5</div>
+               <img src="img/PAGE 5.png" alt="" style="width: 100%; height: 100%;">
+            </div>
+         </div>
+
+         <div class="leaf">
+            <div class="page front" style="background-color: #fff;">
+               <div class="pageNumber">6</div>
+               <img src="img/PAGE 6.png" alt="img" style="width: 100%; height: 100%;">
+            </div>
+            <div class="page back" style="background-color: #fff;">
+               <div class="pageNumber">7</div>
+               <img src="img/PAGE 7.png" alt="" style="width: 100%; height: 100%;">
+            </div>
+         </div>
+
+         <div class="leaf">
+            <div class="page front" style="background-color: #fff;">
+               <div class="pageNumber">8</div>
+               <img src="img/PAGE 8.png" alt="img" style="width: 100%; height: 100%;">
+            </div>
+            <div class="page back" style="background-color: #fff;">
+               <div class="pageNumber">9</div>
+               <img src="img/PAGE 9.png" alt="" style="width: 100%; height: 100%;">
+            </div>
+         </div>
+
+         <div class="leaf">
+            <div class="page front" style="background-color: #fff;">
+               <div class="pageNumber">18</div>
+               <img src="img/PAGE 18.png" alt="" style="width: 100%; height: 100%;">
+            </div>
+            <div class="page back external" style="background-color: #3b3737;">
+               <img src="ekide.jpg" alt="" style="width: 100%; height: 100%;">
+               <em>
+                  <p class="portada"></p>
+               </em>
+            </div>
+         </div>
+      </div>
+
+   </div>
+   <script src="ScrapBook.js"></script>
+   <script>
+      document.getElementById('sidebarToggle').onclick = function () {
+         document.getElementById('sidebar').classList.toggle('collapsed');
+      };
+   </script>
+</body>
+
+</html>

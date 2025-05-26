@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Flip Book</title>
+  <link rel="stylesheet" href="fotoalbum.css">
+</head>
+
+<body>
+  <div class="sidebar" id="sidebar">
+    <button class="sidebar-toggle" id="sidebarToggle">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Surprise :]</a></li>
+        <li><a href="card.html">Card</a></li>
+        <li><a href="fotoalbum.html">fotoalbum</a></li>
+        <li><a href="ScrapBook.html">ScrapBook</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <div id="hedlinecontainer">
+      <div id="shine">Happy Valentine's Day💞</div>
+    </div>
+    <div class="gallery">
+      <img src="Heart_corazón.png" alt="" srcset="">
+      <img src="ekide.jpg" alt="" srcset="">
+      <img src="Heart_corazón.png" alt="" srcset="">
+      <img src="ekide.jpg" alt="" srcset="">
+      <img src="Heart_corazón.png" alt="" srcset="">
+      <img src="ekide.jpg" alt="" srcset="">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('sidebarToggle').onclick = function () {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+    };
+  </script>
+</body>
+
+</html>

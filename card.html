@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Envelope + Letter </title>
+    <link rel="stylesheet" href="card.css">
+</head>
+<body>
+ <div class="sidebar" id="sidebar">
+    <button class="sidebar-toggle" id="sidebarToggle">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Surprise :]</a></li>
+        <li><a href="card.html">Card</a></li>
+        <li><a href="fotoalbum.html">fotoalbum</a></li>
+        <li><a href="ScrapBook.html">ScrapBook</a></li>
+      </ul>
+    </nav>
+  </div>
+    <div class="main-content">
+
+    <div class="envelope">
+        <div class="envelope-lid"></div>
+        <div class="envelope-lid envelope-lid-secondary"></div>
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-cover">
+                    <div class="card-side card-side-primary">
+                        <h1 class="card-title">
+                            <span class="card-title-secondary">Happy</span>
+                            <span class="card-title-main">Valentines <span
+                                    class="card-title-apostrophe">❤️</span></span>
+                            <span class="card-title-secondary">Day</span>
+                        </h1>
+                    </div>
+                    <div class="card-side card-side-secondary"></div>
+                </div>
+                <div class="card-body">
+                    <p>To my love,</p>
+                    <p>Words cant explain how in love i am with you. I know its cliche but youre different you were my first for many things i felt safe wanted and most importantly i felt like i wasnt a bother and thats something i have rarely felt. I wish i could tell you but I know i cant i know you dont feel the same so i just sit here in silence with my love close to my chest never letting these cards go</p>
+                    <p>I just wish i was dealt these cards sooner</p>
+                </div>
+            </div>
+        </div>
+        <div class="heart-seal"></div> </div>
+    </div>
+    <script>
+            // Simple sidebar toggle
+    document.getElementById('sidebarToggle').onclick = function () {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+    };
+
+    const envelope = document.querySelector('.envelope');
+const heartSeal = document.querySelector('.heart-seal');
+let timeoutId;
+
+envelope.addEventListener('mouseover', () => {
+    clearTimeout(timeoutId);
+    heartSeal.style.opacity = 0;
+});
+
+envelope.addEventListener('mouseout', () => {
+    timeoutId = setTimeout(() => {
+        heartSeal.style.opacity = 1;
+    }, 1500); 
+});
+
+heartSeal.style.transition = 'opacity 0.3s ease';
+    </script>
+</body>
+</html>

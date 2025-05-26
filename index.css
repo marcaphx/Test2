@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  background: #f8f6f1;
+  overflow: hidden;
+}
+.sidebar {
+    width: 220px;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    border-right: 2px solid #00fff7;
+    min-height: 100vh;
+    transition: width 0.3s, background 0.5s;
+    position: relative;
+    z-index: 10;
+    box-shadow: 4px 0 24px #00fff7a0, 0 0 0 1px #232526 inset;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 80px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav ul li {
+    margin: 0;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    color: #00fff7;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    background: rgba(0,255,247,0.05);
+    letter-spacing: 0.08em;
+    font-size: 1.08em;
+    position: relative;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.3s,
+        font-size 0.3s;
+    box-shadow: 0 2px 8px 0 #00fff71a;
+    overflow: hidden;
+}
+
+.sidebar nav ul li a::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00fff7;
+    margin-right: 10px;
+    opacity: 0.7;
+    box-shadow: 0 0 8px #00fff7, 0 0 2px #fff;
+    transition: background 0.2s;
+}
+
+.sidebar nav ul li a:hover, 
+.sidebar nav ul li a:focus {
+    background: linear-gradient(90deg, #00fff7 0%, #0e2f4c 100%);
+    color: #232526;
+    box-shadow: 0 0 16px #00fff7a0, 0 0 4px #fff;
+    font-size: 1.13em;
+}
+
+.sidebar nav ul li a:hover::before,
+.sidebar nav ul li a:focus::before {
+    background: #fff;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: linear-gradient(135deg, #00fff7 0%, #0e2f4c 100%);
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    color: #232526;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    z-index: 20;
+    box-shadow: 0 0 12px #00fff7a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-toggle:hover {
+    background: #232526;
+    color: #00fff7;
+    box-shadow: 0 0 24px #00fff7;
+}
+
+.sidebar.collapsed nav ul li a {
+    padding-left: 12px;
+    font-size: 0;
+    justify-content: center;
+}
+
+.sidebar.collapsed nav ul li a::before {
+    content: "•";
+    font-size: 22px;
+    color: #00fff7;
+    margin-right: 0;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+}
+
+
+.main-content {
+  flex: 1;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@property --h {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
+img {
+  --s: 150px; /* image size */
+  --b: 12px;  /* the border */
+  --d: 30px;  /* the 3D depth */
+  --c: #d81a14;
+  --_c: color-mix(in srgb,var(--c),#fff 25%);
+  
+  --_w: calc(var(--s) + 2*var(--b));
+  width: calc(var(--_w) + var(--d));
+  aspect-ratio: 1;
+  padding-top: min(var(--h) - var(--b),var(--s));
+  border: solid #0000;
+  border-width: var(--b) calc(var(--b) + var(--d)) calc(var(--b) + var(--d)) var(--b);
+  box-sizing: border-box;
+  object-fit: cover;
+  object-position: bottom;
+  background: 
+    linear-gradient(var(--_c) 0 0) no-repeat
+     0 0/calc(100% - var(--d)) calc(100% - var(--d) + var(--h) - var(--_w)),
+    conic-gradient(at right var(--d) bottom var(--d),
+     #0004 37.5%,#0008 0 75%,#0000 0) var(--c);
+  background-origin: border-box;
+  clip-path: polygon(0 calc(var(--h) - var(--_w)),calc(100% - var(--d)) calc(var(--h) - var(--_w)),calc(100% - var(--d)) 0,100% var(--d),100% 100%,var(--d) 100%,0 calc(100% - var(--d)));
+  box-shadow: 0 0 0 999px var(--_c);
+  --h: var(--_w);
+  transition: --h .6s linear;
+  cursor: pointer;
+}
+.alt {
+  --c: #8A9B0F;
+  border-width: var(--b) var(--b) calc(var(--b) + var(--d)) calc(var(--b) + var(--d));
+  background: 
+    linear-gradient(var(--_c) 0 0) no-repeat
+     100% 0/calc(100% - var(--d)) calc(100% - var(--d) + var(--h) - var(--_w)),
+    conic-gradient(at left var(--d) bottom var(--d),
+     #0000 25%,#0008 0 62.5%,#0004 0) var(--c);
+  background-origin: border-box;
+  clip-path: polygon(100% calc(var(--h) - var(--_w)),var(--d) calc(var(--h) - var(--_w)),var(--d) 0,0 var(--d),0 100%,calc(100% - var(--d)) 100%,100% calc(100% - var(--d)));
+}
+
+img:hover {
+  --h: 0px;
+}
+
+/* for firefox you will have a small missalignement */
+@supports (-moz-appearance: none) {
+  img {
+    transition: .6s linear;
+  }
+}
+

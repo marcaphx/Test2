@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Circular Grid | Coding Vibess</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <div class="sidebar" id="sidebar">
+    <button class="sidebar-toggle" id="sidebarToggle">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Surprise :]</a></li>
+        <li><a href="card.html">Card</a></li>
+        <li><a href="fotoalbum.html">fotoalbum</a></li>
+        <li><a href="ScrapBook.html">ScrapBook</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="main-content">
+    <img src="https://picsum.photos/id/660/300/300" alt="Fireworks">
+<img src="https://picsum.photos/id/696/300/300" alt="Flowers" class="alt">
+<img src="https://picsum.photos/id/660/300/300" alt="Fireworks">
+<img src="https://picsum.photos/id/696/300/300" alt="Flowers" class="alt">
+<img src="https://picsum.photos/id/660/300/300" alt="Fireworks">
+<img src="https://picsum.photos/id/696/300/300" alt="Flowers" class="alt">
+  </div>
+  <script>
+    // Simple sidebar toggle
+    document.getElementById('sidebarToggle').onclick = function () {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+    };
+  </script>
+</body>
+
+</html>

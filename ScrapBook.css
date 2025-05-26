@@ -1,0 +1,361 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    max-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #96c2f8 60%, #e3f0ff 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    width: 220px;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    border-right: 2px solid #00fff7;
+    min-height: 100vh;
+    transition: width 0.3s, background 0.5s;
+    position: relative;
+    z-index: 10;
+    box-shadow: 4px 0 24px #00fff7a0, 0 0 0 1px #232526 inset;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 80px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav ul li {
+    margin: 0;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    color: #00fff7;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    background: rgba(0,255,247,0.05);
+    letter-spacing: 0.08em;
+    font-size: 1.08em;
+    position: relative;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.3s,
+        font-size 0.3s;
+    box-shadow: 0 2px 8px 0 #00fff71a;
+    overflow: hidden;
+}
+
+.sidebar nav ul li a::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00fff7;
+    margin-right: 10px;
+    opacity: 0.7;
+    box-shadow: 0 0 8px #00fff7, 0 0 2px #fff;
+    transition: background 0.2s;
+}
+
+.sidebar nav ul li a:hover, 
+.sidebar nav ul li a:focus {
+    background: linear-gradient(90deg, #00fff7 0%, #0e2f4c 100%);
+    color: #232526;
+    box-shadow: 0 0 16px #00fff7a0, 0 0 4px #fff;
+    font-size: 1.13em;
+}
+
+.sidebar nav ul li a:hover::before,
+.sidebar nav ul li a:focus::before {
+    background: #fff;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: linear-gradient(135deg, #00fff7 0%, #0e2f4c 100%);
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    color: #232526;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    z-index: 20;
+    box-shadow: 0 0 12px #00fff7a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-toggle:hover {
+    background: #232526;
+    color: #00fff7;
+    box-shadow: 0 0 24px #00fff7;
+}
+
+.sidebar.collapsed nav ul li a {
+    padding-left: 12px;
+    font-size: 0;
+    justify-content: center;
+}
+
+.sidebar.collapsed nav ul li a::before {
+    content: "•";
+    font-size: 22px;
+    color: #00fff7;
+    margin-right: 0;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 30px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.scrapbook-title {
+    font-family: 'Pacifico', cursive, sans-serif;
+    color: #2d3a4b;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    margin: 0 0 20px 0;
+    text-shadow: 1px 2px 8px #b2ebf2;
+}
+
+.flipbook {
+    padding-top: 10px;
+    /* Reduced padding */
+    margin: 1em auto 0.5em auto;
+    /* Less margin */
+    width: 1200px;
+    /* Increased width */
+    height: 900px;
+    /* Increased height */
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    /* Slightly more perspective for bigger book */
+    background: #f8fafc;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    border: 1px solid #b2ebf2;
+}
+
+.flipbook .leaf {
+    position: absolute;
+    transform-style: preserve-3d;
+    height: 85%;
+    /* Bigger leaves */
+    width: 500px;
+    background-color: #fff;
+    left: 50%;
+    transition: transform 1s;
+    transform: rotate3d(0, 1, 0, 0deg);
+    transform-origin: left 0px;
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.10);
+    border-radius: 10px;
+}
+
+.flipbook .leaf .page {
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.flipbook .leaf .page.front {
+    transform: rotate3d(0, 1, 0, 0deg) translate3d(0, 0, 0.1px);
+    box-shadow: 2px 0 8px #b2ebf2;
+}
+
+.flipbook .leaf .page.front:not(.external) {
+    box-shadow: inset 5px 0px 5px -5px #0005;
+}
+
+.flipbook .leaf .page.back {
+    transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, 0.1px);
+    box-shadow: -2px 0 8px #b2ebf2;
+}
+
+.flipbook .leaf .page.back:not(.external) {
+    box-shadow: inset -5px 0px 5px -5px #0005;
+}
+
+.disable {
+    user-select: none;
+    opacity: 0.6;
+}
+
+.title {
+    text-align: center;
+    width: 100%;
+    padding-top: 2em;
+}
+
+.page {
+    padding: 1em;
+    background: #fff;
+}
+
+.page.front {
+    border-radius: 0em 1em 1em 0;
+}
+
+.page.back {
+    border-radius: 1em 0em 0em 1em;
+}
+
+.leaf {
+    background-color: #f7f7f700 !important;
+}
+
+.pageNumber {
+    font-size: 0.85em;
+    position: absolute;
+    bottom: 0.5em;
+    color: #3b3737;
+    background: #e3f0ffb0;
+    padding: 2px 8px;
+    border-radius: 8px;
+    right: 0.75em;
+}
+
+.back .pageNumber {
+    left: 0.75em;
+    right: auto;
+}
+
+.contents-row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.contents-row .spacer {
+    flex: 1 1;
+    height: 1em;
+    border-bottom: 1px dashed #000;
+}
+
+.contents-row .text {
+    flex: 0 0 auto
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Pacifico', cursive, sans-serif;
+    color: #2d3a4b;
+}
+
+p.portada {
+    font-size: 1.05em;
+    color: #faf8f7;
+}
+
+h2.contenido {
+    font-family: cursive;
+    color: #050505;
+}
+
+.centered {
+    margin: auto;
+    width: max-content;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    /* Less margin */
+    gap: 10px;
+    /* Less gap between buttons */
+}
+
+#prevPage,
+#nextPage {
+    width: 60px;
+    height: 60px;
+    background-color: #b2ebf2;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px #b2ebf2;
+    background-repeat: no-repeat;
+    background-size: 60% 60%;
+    background-position: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+    margin: 0;
+    /* Ensure no margin */
+    padding: 0;
+    /* Ensure no padding */
+}
+
+#prevPage {
+    background-image: url('img/left.png');
+}
+
+#nextPage {
+    background-image: url('img/right.png');
+}
+
+#prevPage:disabled,
+#nextPage:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#prevPage:hover:not(:disabled),
+#nextPage:hover:not(:disabled) {
+    background-color: #96c2f8;
+    transform: scale(1.08);
+}
+
+/* Responsive */
+@media (max-width: 1300px) {
+    .flipbook {
+        width: 98vw;
+        height: 70vw;
+        min-width: 320px;
+        min-height: 220px;
+    }
+}
