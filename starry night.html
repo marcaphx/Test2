@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starry Sky Message</title>
+    <link rel="stylesheet" href="starry night.css">
+</head>
+
+<body>
+   <div class="sidebar" id="sidebar">
+      <button class="sidebar-toggle" id="sidebarToggle">&#9776;</button>
+      <nav>
+         <ul>
+        <li><a href="index.html">Surprise :]</a></li>
+        <li><a href="card.html">Card</a></li>
+        <li><a href="fotoalbum.html">fotoalbum</a></li>
+        <li><a href="ScrapBook.html">ScrapBook</a></li>
+        <li><a href="starry night.html">Starry Night</a></li>
+         </ul>
+      </nav>
+   </div>
+      <div class="main-content">
+
+    <div id="sky"></div>
+    <div id="message" class="message"></div>
+    </div>
+</body>
+<script src="starry night.js">
+      document.getElementById('sidebarToggle').onclick = function () {
+         document.getElementById('sidebar').classList.toggle('collapsed');
+      };
+</script>
+
+
+</html>

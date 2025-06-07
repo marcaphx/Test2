@@ -1,0 +1,178 @@
+   body {
+      margin: 0;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+      height: 100vh;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+    }
+.sidebar {
+    width: 220px;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    border-right: 2px solid #00fff7;
+    min-height: 100vh;
+    transition: width 0.3s, background 0.5s;
+    position: relative;
+    z-index: 10;
+    box-shadow: 4px 0 24px #00fff7a0, 0 0 0 1px #232526 inset;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 80px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav ul li {
+    margin: 0;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    color: #00fff7;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    background: rgba(0,255,247,0.05);
+    letter-spacing: 0.08em;
+    font-size: 1.08em;
+    position: relative;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.3s,
+        font-size 0.3s;
+    box-shadow: 0 2px 8px 0 #00fff71a;
+    overflow: hidden;
+}
+
+.sidebar nav ul li a::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00fff7;
+    margin-right: 10px;
+    opacity: 0.7;
+    box-shadow: 0 0 8px #00fff7, 0 0 2px #fff;
+    transition: background 0.2s;
+}
+
+.sidebar nav ul li a:hover, 
+.sidebar nav ul li a:focus {
+    background: linear-gradient(90deg, #00fff7 0%, #0e2f4c 100%);
+    color: #232526;
+    box-shadow: 0 0 16px #00fff7a0, 0 0 4px #fff;
+    font-size: 1.13em;
+}
+
+.sidebar nav ul li a:hover::before,
+.sidebar nav ul li a:focus::before {
+    background: #fff;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: linear-gradient(135deg, #00fff7 0%, #0e2f4c 100%);
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    color: #232526;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    z-index: 20;
+    box-shadow: 0 0 12px #00fff7a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-toggle:hover {
+    background: #232526;
+    color: #00fff7;
+    box-shadow: 0 0 24px #00fff7;
+}
+
+.sidebar.collapsed nav ul li a {
+    padding-left: 12px;
+    font-size: 0;
+    justify-content: center;
+}
+
+.sidebar.collapsed nav ul li a::before {
+    content: "•";
+    font-size: 22px;
+    color: #00fff7;
+    margin-right: 0;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 30px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+    .star {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.2; }
+    }
+
+    .message {
+      position: absolute;
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #fff;
+      border-radius: 10px;
+      display: none;
+      z-index: 100;
+      max-width: 200px;
+    }
+
+    .heart-constellation {
+      background: #ff69b4;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
